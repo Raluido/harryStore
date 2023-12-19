@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('users_addresses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('user_id')->constrained();
             $table->string('address_line1');
             $table->string('address_line2');
             $table->string('city');

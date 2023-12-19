@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('category_id')->constrained();
             $table->foreignId('stock_id')->constrained();
-            $table->foreignId('discount_id')->constrained();
+            $table->foreignId('discount_id')->constrained()->nullable();
             $table->string('product_code');
             $table->string('product_title');
             $table->string('product_photo');

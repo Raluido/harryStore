@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users_payments', function (Blueprint $table) {
+        Schema::create('logs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users');
-            $table->string('payment_type');
-            $table->string('provider');
-            $table->string('account_number');
-            $table->date('expiration_date');
+            $table->foreignId("user_id")->constrained()->index();
+            $table->string("log_id")->nullable();
+            $table->string("log_key")->nullable();
+            $table->longtext("log_value")->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users_payments');
+        Schema::dropIfExists('logs');
     }
 };
