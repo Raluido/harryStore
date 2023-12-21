@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('shippings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('order_id')->constrained();
+            $table->foreignId('order_id')->constrained()->index();
+            $table->float('price');
             $table->string('company');
             $table->string('tracking_number');
             $table->date('departure');

@@ -15,10 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('invoice_id')->constrained()->index()->nullable();
             $table->string("order_code");
+            $table->float("discount", 8, 4)->default(0);
             $table->float("total", 8, 4);
-            $table->float("discount", 8, 4);
-            $table->float("tax", 8, 4);
-            $table->char("status")->default(1);
             $table->timestamps();
         });
     }

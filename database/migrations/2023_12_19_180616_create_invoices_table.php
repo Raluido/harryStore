@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('invoice_number');
             $table->float('total', 8, 4);
             $table->float('tax', 3, 2);
+            $table->char('paid')->default(0);
             $table->timestamps();
         });
     }

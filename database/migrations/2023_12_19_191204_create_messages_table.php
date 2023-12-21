@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('product_id')->constrained();
+            $table->foreignId('user_id')->constrained()->index()->nullable();
+            $table->foreignId('product_id')->constrained()->index()->nullable();
             $table->string('title');
             $table->longText('content');
             $table->char('resolve')->default(0);
