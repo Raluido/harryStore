@@ -16,26 +16,31 @@ class Controller extends BaseController
 
         if ($totalProductsCategories == 1) {
             $product = $products[0];
-            if ($product->quantity > 1) {
-                $shippingCost = $product->shippingPrice + 0.1 * (($product->quantity - 1) * $product->shippingPrice);
-            }
+            return $this->pricePerCategory($product->price, $product->quantity);
         } else {
-            $totalProducts = 0;
-            $mayority = false;
+            $temp = 0;
+            $shippingCostMedia = 0;
+            $totalQuantity = 0;
             foreach ($products as $key => $value) {
+                $totalQuantity += $value->quantity;
                 $value->ratio = $value->quantity / $totalProductsCategories;
-                $totalProducts += $value->quantity;
-                if($value->ratio > 0.5){
-                    $mayority = true;
+                $shippingCostMedia += $this->pricePerCategory($value->shippingPrice, $value->quantity);
+                if ($value->ratio > 0.5 && $value->ratio > $temp) {
+                    $shippingCostMayorityPerUnity = $value->shippingPrice;
+                    $temp = $value->ratio;
                 }
             }
 
-            if(){
-                $shippingCost = $categoryMayor->shippingPrice;
-                    for ($i = 1; $i < $product->quantity; $i++) {
-                        $shippingCost += 0.1 * $totalAmount;
-                    } 
+            if ($shippingCostMayorityPerUnity > 0) {
+                return $this->pricePerCategory($shippingCostMayorityPerUnity, $totalQuantity);
+            } else {
+                return $shippingCostMedia;
             }
         }
+    }
+
+    public function pricePerCategory($singlePrice, $quantity)
+    {
+        return $singlePrice * (1 + 0.1 * $quantity);
     }
 }

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained();
             $table->foreignId('stock_id')->constrained();
             $table->foreignId('discount_id')->constrained()->nullable();
+            $table->foreignId('product_id')->constrained()->index();
             $table->string('product_code');
             $table->string('product_title');
             $table->string('product_photo');
@@ -23,7 +24,6 @@ return new class extends Migration
             $table->float('product_price', 8, 4);
             $table->string('product_rate')->default(100);
             $table->string('product_tax');
-            $table->float('product_shipping_price', 8, 4);
             $table->longText('product_tags');
             $table->char('product_visible')->default(1);
             $table->timestamps();

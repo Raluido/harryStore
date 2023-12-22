@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('shippings', function (Blueprint $table) {
+        Schema::create('shippings_registers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('order_id')->constrained()->index();
-            $table->float('price');
-            $table->string('company');
             $table->string('tracking_number');
             $table->date('departure');
+            $table->date('estimated_arrived');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('shippings');
+        Schema::dropIfExists('shippings_registers');
     }
 };
