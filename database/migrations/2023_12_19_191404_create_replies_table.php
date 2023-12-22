@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('message_id')->constrained();
             $table->foreignId('user_id')->constrained();
-            $table->longText('content');
+            $table->longText('reply_content');
             $table->timestamps();
         });
     }

@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('order_id')->constrained();
-            $table->string('email');
-            $table->string('subject');
-            $table->longText('content');
-            $table->char('state')->default(1);
-            $table->integer('intents');
+            $table->string('mailer_email');
+            $table->string('mailer_subject');
+            $table->longText('mailer_content');
+            $table->char('mailer_state')->default(0);
+            $table->integer('mailer_intents');
             $table->timestamps();
         });
     }

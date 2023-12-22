@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('invoice_id')->constrained()->index();
+            $table->foreignId('invoice_id')->constrained()->index()->nullable();
+            $table->foreignId('user_id')->constrained()->index();
             $table->string("order_code");
-            $table->float("total", 8, 4);
+            $table->float("order_total", 8, 4);
+            $table->float("order_tax", 8, 4);
+            $table->float("order_discount", 8, 4);
             $table->timestamps();
         });
     }

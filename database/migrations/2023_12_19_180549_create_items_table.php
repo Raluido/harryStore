@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('product_id')->constrained();
             $table->foreignId('order_id')->constrained();
-            $table->integer('quantity');
-            $table->float('tax', 8, 4);
-            $table->float('cost', 8, 4);
-            $table->float('shipping_price', 8, 4);
+            $table->integer('item_quantity');
+            $table->float('item_tax', 8, 4);
+            $table->float('item_cost', 8, 4);
+            $table->float('item_shipping_price', 8, 4);
             $table->timestamps();
         });
     }

@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
             $table->string('invoice_number');
-            $table->float('total', 8, 4);
-            $table->char('paid')->default(0);
+            $table->float('invoice_total', 8, 4);
+            $table->char('invoice_is_paid')->default(0);
             $table->timestamps();
         });
     }

@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('shippings_prices', function (Blueprint $table) {
             $table->id();
-            $table->float('price');
-            $table->string('company');
+            $table->foreignId('product_id')->constrained()->index();
+            $table->string('shipping_price_company');
+            $table->float('shipping_price');
             $table->timestamps();
         });
     }

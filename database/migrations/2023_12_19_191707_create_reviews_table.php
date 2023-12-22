@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->index()->nullable();
             $table->foreignId('product_id')->constrained()->index()->nullable();
-            $table->longText('content');
-            $table->float('rate');
+            $table->longText('review_content');
+            $table->float('review_rate');
             $table->timestamps();
         });
     }

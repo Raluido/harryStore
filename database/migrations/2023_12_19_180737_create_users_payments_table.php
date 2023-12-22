@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('users_payments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->index();
-            $table->string('payment_type');
-            $table->string('provider');
-            $table->string('account_number');
-            $table->date('expiration_date');
+            $table->string('user_payment_type');
+            $table->string('user_payment_provider');
+            $table->string('user_payment_account_number');
+            $table->date('user_payment_card_expiration_date');
             $table->timestamps();
         });
     }

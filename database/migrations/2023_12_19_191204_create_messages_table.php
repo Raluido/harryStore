@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->index()->nullable();
-            $table->foreignId('product_id')->constrained()->index()->nullable();
-            $table->string('title');
-            $table->longText('content');
-            $table->char('resolve')->default(0);
+            $table->foreignId('user_id')->constrained()->index();
+            $table->foreignId('order_id')->constrained()->index();
+            $table->string('message_title');
+            $table->longText('message_content');
+            $table->char('message_replied')->default(0);
             $table->timestamps();
         });
     }

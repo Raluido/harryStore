@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('shippings_registers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('order_id')->constrained()->index();
-            $table->string('tracking_number');
-            $table->date('departure');
-            $table->date('estimated_arrived');
+            $table->string('shipping_register_tracking_number');
+            $table->date('shipping_register_departure');
+            $table->date('shipping_register_estimated_arrived');
             $table->timestamps();
         });
     }

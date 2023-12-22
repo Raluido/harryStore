@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tickets_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('ticket_category_name');
             $table->timestamps();
         });
     }

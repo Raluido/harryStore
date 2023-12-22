@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('ticket_category_id')->constrained();
             $table->foreignId('user_id')->constrained();
-            $table->string('title');
-            $table->longText('message');
-            $table->char('resolved')->default(0);
+            $table->string('ticket_title');
+            $table->longText('ticket_message');
+            $table->char('ticket_is_resolved')->default(0);
             $table->timestamps();
         });
     }
